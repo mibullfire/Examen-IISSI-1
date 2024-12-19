@@ -1,0 +1,64 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'concursos'",
+        "route": "/concursos",
+        "method": "GET",
+        "sql": "SELECT * FROM concursos",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'concursos' by its primary key",
+        "route": "/concursos/$concursoID",
+        "method": "GET",
+        "sql": "SELECT * FROM concursos WHERE concursoID = $concursoID",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'concursos'",
+        "route": "/concursos",
+        "method": "POST",
+        "sql": "INSERT INTO concursos (videojuegoID, nombre, premio, fecha) VALUES ($videojuegoID, $nombre, $premio, $fecha)",
+        "request_body_params": [
+            "videojuegoID",
+            "nombre",
+            "premio",
+            "fecha"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'concursos' by its primary key",
+        "route": "/concursos/$concursoID",
+        "method": "PUT",
+        "sql": "UPDATE concursos SET videojuegoID = $videojuegoID, nombre = $nombre, premio = $premio, fecha = $fecha WHERE concursoID = $concursoID",
+        "request_body_params": [
+            "videojuegoID",
+            "nombre",
+            "premio",
+            "fecha"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'concursos' by its primary key",
+        "route": "/concursos/$concursoID",
+        "method": "DELETE",
+        "sql": "DELETE FROM concursos WHERE concursoID = $concursoID",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

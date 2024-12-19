@@ -1,0 +1,58 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'genres'",
+        "route": "/genres",
+        "method": "GET",
+        "sql": "SELECT * FROM genres",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'genres' by its primary key",
+        "route": "/genres/$idGenre",
+        "method": "GET",
+        "sql": "SELECT * FROM genres WHERE idGenre = $idGenre",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'genres'",
+        "route": "/genres",
+        "method": "POST",
+        "sql": "INSERT INTO genres (description) VALUES ($description)",
+        "request_body_params": [
+            "description"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'genres' by its primary key",
+        "route": "/genres/$idGenre",
+        "method": "PUT",
+        "sql": "UPDATE genres SET description = $description WHERE idGenre = $idGenre",
+        "request_body_params": [
+            "description"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'genres' by its primary key",
+        "route": "/genres/$idGenre",
+        "method": "DELETE",
+        "sql": "DELETE FROM genres WHERE idGenre = $idGenre",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

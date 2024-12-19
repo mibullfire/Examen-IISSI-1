@@ -1,0 +1,66 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'reviews'",
+        "route": "/reviews",
+        "method": "GET",
+        "sql": "SELECT * FROM reviews",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'reviews' by its primary key",
+        "route": "/reviews/$idReview",
+        "method": "GET",
+        "sql": "SELECT * FROM reviews WHERE idReview = $idReview",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'reviews'",
+        "route": "/reviews",
+        "method": "POST",
+        "sql": "INSERT INTO reviews (idUser, idVideogame, reviewText, rating, reviewDate) VALUES ($idUser, $idVideogame, $reviewText, $rating, $reviewDate)",
+        "request_body_params": [
+            "idUser",
+            "idVideogame",
+            "reviewText",
+            "rating",
+            "reviewDate"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'reviews' by its primary key",
+        "route": "/reviews/$idReview",
+        "method": "PUT",
+        "sql": "UPDATE reviews SET idUser = $idUser, idVideogame = $idVideogame, reviewText = $reviewText, rating = $rating, reviewDate = $reviewDate WHERE idReview = $idReview",
+        "request_body_params": [
+            "idUser",
+            "idVideogame",
+            "reviewText",
+            "rating",
+            "reviewDate"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'reviews' by its primary key",
+        "route": "/reviews/$idReview",
+        "method": "DELETE",
+        "sql": "DELETE FROM reviews WHERE idReview = $idReview",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

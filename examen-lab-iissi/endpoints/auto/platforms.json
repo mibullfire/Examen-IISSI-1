@@ -1,0 +1,62 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'platforms'",
+        "route": "/platforms",
+        "method": "GET",
+        "sql": "SELECT * FROM platforms",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'platforms' by its primary key",
+        "route": "/platforms/$idPlatform",
+        "method": "GET",
+        "sql": "SELECT * FROM platforms WHERE idPlatform = $idPlatform",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'platforms'",
+        "route": "/platforms",
+        "method": "POST",
+        "sql": "INSERT INTO platforms (idPlatform, name, isHandheld) VALUES ($idPlatform, $name, $isHandheld)",
+        "request_body_params": [
+            "idPlatform",
+            "name",
+            "isHandheld"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'platforms' by its primary key",
+        "route": "/platforms/$idPlatform",
+        "method": "PUT",
+        "sql": "UPDATE platforms SET idPlatform = $idPlatform, name = $name, isHandheld = $isHandheld WHERE idPlatform = $idPlatform",
+        "request_body_params": [
+            "idPlatform",
+            "name",
+            "isHandheld"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'platforms' by its primary key",
+        "route": "/platforms/$idPlatform",
+        "method": "DELETE",
+        "sql": "DELETE FROM platforms WHERE idPlatform = $idPlatform",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

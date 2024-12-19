@@ -1,0 +1,60 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'genresvideogames'",
+        "route": "/genresvideogames",
+        "method": "GET",
+        "sql": "SELECT * FROM genresvideogames",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'genresvideogames' by its primary key",
+        "route": "/genresvideogames/$idGenreVideogame",
+        "method": "GET",
+        "sql": "SELECT * FROM genresvideogames WHERE idGenreVideogame = $idGenreVideogame",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'genresvideogames'",
+        "route": "/genresvideogames",
+        "method": "POST",
+        "sql": "INSERT INTO genresvideogames (idGenre, idVideogame) VALUES ($idGenre, $idVideogame)",
+        "request_body_params": [
+            "idGenre",
+            "idVideogame"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'genresvideogames' by its primary key",
+        "route": "/genresvideogames/$idGenreVideogame",
+        "method": "PUT",
+        "sql": "UPDATE genresvideogames SET idGenre = $idGenre, idVideogame = $idVideogame WHERE idGenreVideogame = $idGenreVideogame",
+        "request_body_params": [
+            "idGenre",
+            "idVideogame"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'genresvideogames' by its primary key",
+        "route": "/genresvideogames/$idGenreVideogame",
+        "method": "DELETE",
+        "sql": "DELETE FROM genresvideogames WHERE idGenreVideogame = $idGenreVideogame",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

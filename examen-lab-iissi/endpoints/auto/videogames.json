@@ -1,0 +1,68 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'videogames'",
+        "route": "/videogames",
+        "method": "GET",
+        "sql": "SELECT * FROM videogames",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'videogames' by its primary key",
+        "route": "/videogames/$idVideogame",
+        "method": "GET",
+        "sql": "SELECT * FROM videogames WHERE idVideogame = $idVideogame",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'videogames'",
+        "route": "/videogames",
+        "method": "POST",
+        "sql": "INSERT INTO videogames (idPlatform, price, name, releaseDate, score, uniqueCode) VALUES ($idPlatform, $price, $name, $releaseDate, $score, $uniqueCode)",
+        "request_body_params": [
+            "idPlatform",
+            "price",
+            "name",
+            "releaseDate",
+            "score",
+            "uniqueCode"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'videogames' by its primary key",
+        "route": "/videogames/$idVideogame",
+        "method": "PUT",
+        "sql": "UPDATE videogames SET idPlatform = $idPlatform, price = $price, name = $name, releaseDate = $releaseDate, score = $score, uniqueCode = $uniqueCode WHERE idVideogame = $idVideogame",
+        "request_body_params": [
+            "idPlatform",
+            "price",
+            "name",
+            "releaseDate",
+            "score",
+            "uniqueCode"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'videogames' by its primary key",
+        "route": "/videogames/$idVideogame",
+        "method": "DELETE",
+        "sql": "DELETE FROM videogames WHERE idVideogame = $idVideogame",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

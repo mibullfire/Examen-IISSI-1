@@ -1,0 +1,62 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'friendships'",
+        "route": "/friendships",
+        "method": "GET",
+        "sql": "SELECT * FROM friendships",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'friendships' by its primary key",
+        "route": "/friendships/$idFriendship",
+        "method": "GET",
+        "sql": "SELECT * FROM friendships WHERE idFriendship = $idFriendship",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'friendships'",
+        "route": "/friendships",
+        "method": "POST",
+        "sql": "INSERT INTO friendships (idUser1, idUser2, friendshipDate) VALUES ($idUser1, $idUser2, $friendshipDate)",
+        "request_body_params": [
+            "idUser1",
+            "idUser2",
+            "friendshipDate"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'friendships' by its primary key",
+        "route": "/friendships/$idFriendship",
+        "method": "PUT",
+        "sql": "UPDATE friendships SET idUser1 = $idUser1, idUser2 = $idUser2, friendshipDate = $friendshipDate WHERE idFriendship = $idFriendship",
+        "request_body_params": [
+            "idUser1",
+            "idUser2",
+            "friendshipDate"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'friendships' by its primary key",
+        "route": "/friendships/$idFriendship",
+        "method": "DELETE",
+        "sql": "DELETE FROM friendships WHERE idFriendship = $idFriendship",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

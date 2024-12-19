@@ -1,0 +1,62 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'usersachievements'",
+        "route": "/usersachievements",
+        "method": "GET",
+        "sql": "SELECT * FROM usersachievements",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'usersachievements' by its primary key",
+        "route": "/usersachievements/$idUserAchievement",
+        "method": "GET",
+        "sql": "SELECT * FROM usersachievements WHERE idUserAchievement = $idUserAchievement",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'usersachievements'",
+        "route": "/usersachievements",
+        "method": "POST",
+        "sql": "INSERT INTO usersachievements (idUser, idAchievement, achievementDate) VALUES ($idUser, $idAchievement, $achievementDate)",
+        "request_body_params": [
+            "idUser",
+            "idAchievement",
+            "achievementDate"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'usersachievements' by its primary key",
+        "route": "/usersachievements/$idUserAchievement",
+        "method": "PUT",
+        "sql": "UPDATE usersachievements SET idUser = $idUser, idAchievement = $idAchievement, achievementDate = $achievementDate WHERE idUserAchievement = $idUserAchievement",
+        "request_body_params": [
+            "idUser",
+            "idAchievement",
+            "achievementDate"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'usersachievements' by its primary key",
+        "route": "/usersachievements/$idUserAchievement",
+        "method": "DELETE",
+        "sql": "DELETE FROM usersachievements WHERE idUserAchievement = $idUserAchievement",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

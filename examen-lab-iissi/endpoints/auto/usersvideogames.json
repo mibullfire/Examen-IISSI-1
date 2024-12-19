@@ -1,0 +1,60 @@
+{
+    "getAll": {
+        "description": "Gets all entries from 'usersvideogames'",
+        "route": "/usersvideogames",
+        "method": "GET",
+        "sql": "SELECT * FROM usersvideogames",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "getById": {
+        "description": "Gets an entry from 'usersvideogames' by its primary key",
+        "route": "/usersvideogames/$idUserVideogame",
+        "method": "GET",
+        "sql": "SELECT * FROM usersvideogames WHERE idUserVideogame = $idUserVideogame",
+        "auth_required": false,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "create": {
+        "description": "Creates a new entry in 'usersvideogames'",
+        "route": "/usersvideogames",
+        "method": "POST",
+        "sql": "INSERT INTO usersvideogames (idUser, idVideogame) VALUES ($idUser, $idVideogame)",
+        "request_body_params": [
+            "idUser",
+            "idVideogame"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "update": {
+        "description": "Updates an existing entry in 'usersvideogames' by its primary key",
+        "route": "/usersvideogames/$idUserVideogame",
+        "method": "PUT",
+        "sql": "UPDATE usersvideogames SET idUser = $idUser, idVideogame = $idVideogame WHERE idUserVideogame = $idUserVideogame",
+        "request_body_params": [
+            "idUser",
+            "idVideogame"
+        ],
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    },
+    "delete": {
+        "description": "Deletes an existing entry in 'usersvideogames' by its primary key",
+        "route": "/usersvideogames/$idUserVideogame",
+        "method": "DELETE",
+        "sql": "DELETE FROM usersvideogames WHERE idUserVideogame = $idUserVideogame",
+        "auth_required": true,
+        "allowed_roles": [
+            "*"
+        ]
+    }
+}

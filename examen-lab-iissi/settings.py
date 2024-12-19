@@ -17,7 +17,8 @@ DB_CONN = {
 # The sequence of SQL scripts located in the sql/ folder that must
 # be ran when the 'silence createdb' command is issued
 SQL_SCRIPTS = [
-    "createDB.sql"
+    "createDB.sql",
+    "solucion.sql"
     # Reference your sql files here, e.g. "create_tables.sql"
 ]
 
